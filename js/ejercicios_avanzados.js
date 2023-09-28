@@ -112,15 +112,60 @@ const convertirNumeros = (numero = undefined, base = undefined) =>
          });
 
          //Invertimos el Array original y, posteriormente lo unimos sin separaciones....
-         console.log(`${arrayBinario.reverse().join('')} en base 2.`)
+         console.log(`${arrayBinario.reverse().join('')} base 2.`)
          break;
       
       //Caso de Binarios a Decimales....
       case 2:
+         let arrayBaseBinaria = [], //contendra las base binarias (2)
+             arrayPotencias = [], // se agregan los resultados de las Potenciaciones...
+             convertirArrayString = [];//para cambiar el Array de String a Entero
 
-         let arrayDecimal = [];
-         console.log(numero.toString().length);
-         console.log("Convertir de Binario a Decimal.");
+         numero = numero.toString().split(""); //convertimos el valor ingresado en un Array...
+
+         //Por cada valor del Array le locamos una base 2....
+         for (let index = 0; index < numero.length; index++) {
+             arrayBaseBinaria.push(2);
+             Math.floor(numero[index]); //elimina los decimales....
+         }
+         
+         let i = 0; //acumulador....
+
+         //A cada elemento de la base lo elevamos a la potencia de su Indice o longitud, es decir, si es de longitud 6.... sus potencias seran elevadas a (0, 1, 2, 3, 4, 5)
+         arrayBaseBinaria.forEach(element => {
+            let potencias = Math.pow(element, i);//elevamos a la potencia...
+            arrayPotencias.push(potencias);
+            i++;
+         });
+         
+         
+         numero.forEach(element => {
+            if (element === "1")
+            {
+               convertirArrayString.push(1);
+            } else{
+               convertirArrayString.push(0);
+            }
+         });
+         
+         arrayPotencias.reverse(); // se voltea el array...
+        
+         let rs = [];
+
+         //For para multiplicar elementos de cada array entre si...
+         for (let i = 0; i < arrayPotencias.length && i < convertirArrayString.length; i++) {
+            let result = arrayPotencias[i] * convertirArrayString[i];
+            rs.push(result);
+            //console.log(elementUNO);
+         }
+
+         //console.log(rs);
+
+         //Sumar los valores del array...
+         const RESULTADO = rs.reduce((anterior, actual) => anterior + actual, 0);
+
+         console.log(`${RESULTADO} base 10.`); //Resultado optenidos.... final del ejercicio. 
+   
          break;
    
       default:
