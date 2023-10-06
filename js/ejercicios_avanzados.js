@@ -62,6 +62,8 @@ const convertidorGrados = (numeroGrado = undefined, tipo = "") =>
 
    if(typeof tipo !== "string") return console.warn(`El dato ${tipo} ingresado no es una cadena de texto....`); //exige que el tipo de dato sea de texto (string)....
 
+   if (tipo.length !== 1) return console.warn("Valor de unidad no reconocido.")
+
    //Bucle para iterar entre las opciones deseada...
    switch(tipo)
    {
@@ -172,12 +174,111 @@ const convertirNumeros = (numero = undefined, base = undefined) =>
          console.warn("Base indefinida....")
          break;
    }
+}
 
+// Ejercicio #16 -  Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+const tuDescuento = (monto = undefined, descuento = 0) =>
+{
+   if (monto === undefined) return console.warn("No ingresaste el monto.");
+
+   if(typeof monto !== "number") return console.warn("Dato no corresponde con el permitido.");
+
+   if (typeof descuento !== "number") return console.warn("No corresponde al tipo de dato permitido.");
+
+   if (Math.sign(descuento) === -1) return console.error("El descuento no puede ser negativo.");
+
+   if (Math.sign(monto) === -1) return console.error("El  monto no puede ser negativo.");
+
+   if (monto === 0) return console.warn("El monto no puede ser 0");
+
+   let montoFinal = monto - (monto * (descuento/100));
+
+   return console.info(`El ${descuento} % de ${monto} es ${montoFinal}`);
+}
+
+// Ejercicio #17 - Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+ 
+const calcularEdad = (fecha = undefined) =>
+{
+   if (fecha === undefined) return console.warn("No ingresaste la fecha.");
+
+   if (!(fecha instanceof Date)) return console.error("El valor que ingresaste no es una fecha valida."); //para negar la validacion de "instanceof" se debe colocar el signo de negacion "!" antes y entre parentesis la expresion 
+
+   let hoyMenosFecha = new Date().getTime() - fecha.getTime(),
+       aniosEnMS = 1000 * 60 * 60 * 24 * 365,
+       aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMS);
+       
+   return (Math.sign(aniosEnMS) === -1)
+    ? console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}.`)
+    : (Math.sign(aniosHumanos) === 1)
+      ? console.info(`Han pasado ${aniosHumanos} años, desde el ${fecha.getFullYear()}.`)
+      : console.info(`Estamos en el año actual ${fecha.getFullYear()}.`)
+}
+
+//Ejercicio #18 - Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+
+const contarVC = (cadena = undefined) =>
+{
+   if (cadena === undefined) return console.warn("No ingresaste un texto a evaluar.");
+
+   if (typeof cadena !== "string") return console.error(`El dato ${cadena} ingresado no corresponde a una cadena de texto.`);
+
+   cadena = cadena.toLowerCase().replace(/ /g, "").split("");/*   
+            volver cadena de texto a minusculas, 
+            quitar los espacios en blancos y
+            volver cadena de texto a Array... */ 
+
+   let arrays = [[],[]]; //Array de Arrays....
+   
+   cadena.forEach(element =>{
+      switch (element) {
+         case "a":
+            arrays[0].push(1);
+            break;
+         
+         case "e":
+            arrays[0].push(1);
+            break;
+         
+         case "i":
+            arrays[0].push(1);
+            break;
+         
+         case "o":
+            arrays[0].push(1);
+            break;
+         
+         case "u":
+            arrays[0].push(1);
+            break;
+         
+         default:
+            arrays[1].push(1);
+            break;
+      }
+   });
+
+   const VOCALES = arrays[0].reduce((anterior, actual) => anterior + actual, 0); //Sumar los valores del array en la posicion "0" que son las vocales...
+  
+   const CONSONANTES = arrays[1].reduce((anterior, actual) => anterior + actual, 0); //Sumar los valores del array en la posicion "0" que son las vocales...
+
+   return console.info(`Vocales: ${VOCALES} y Consonantes: ${CONSONANTES}.`); //RESULTADO FINAL....
 }
 
 export const ejerciciosAvanzados = {
    numeroPrimo,
    numeroImpar, 
    convertidorGrados, 
-   convertirNumeros
+   convertirNumeros,
+   tuDescuento,
+   calcularEdad,
+   contarVC
 }
+
+/*
+  Nota: 
+      La validacion de "typeof" es solo para valores primitivos...
+
+      Mietras que, la validacion de "instanceof", es para datos complejos. 
+*/
