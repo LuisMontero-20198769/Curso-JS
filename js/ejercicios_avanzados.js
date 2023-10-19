@@ -266,6 +266,40 @@ const contarVC = (cadena = undefined) =>
    return console.info(`Vocales: ${VOCALES} y Consonantes: ${CONSONANTES}.`); //RESULTADO FINAL....
 }
 
+// Ejericio #19 - Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+
+const validarNombre = (nombre = undefined) =>
+{
+   if (nombre === undefined) return console.warn("No ingresaste un nombre.");
+
+   if (typeof nombre !== "string") return console.error(`Esto ${nombre} no es una Cadena de Texto.`);
+
+   const expReg = /^([A-Za-zÑñÁáÉéèÍíÓóöÚú]+['\-]{0,1}[A-Za-zÑñÁáÉéèÍíÓóöÚú]+)(\s+([A-Za-zÑñÁáÉéÍíÓóÚú]+['\-]{0,1}[A-Za-zÑñÁáÉéèÍíÓóöÚú]+))*$/ig;
+
+   if (expReg.test(nombre)) {
+      console.info(true);
+   } else{
+      console.info(false);
+   }
+}
+
+// Ejercicio #20 - Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+
+const validarCorreo = (email = undefined) =>
+{
+   if (email === undefined) return console.warn("No ingresaste un correo.");
+
+   if (typeof email !== "string") return console.error(`Esto ${email} no es una cadena de texto.`);
+
+   if (email === "" || email === " ") return console.error(null);
+
+   const expReg =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ig;
+
+   let validacion = (expReg.test(email)) ? true : false;
+
+   console.log(validacion);
+}
+
 export const ejerciciosAvanzados = {
    numeroPrimo,
    numeroImpar, 
@@ -273,7 +307,9 @@ export const ejerciciosAvanzados = {
    convertirNumeros,
    tuDescuento,
    calcularEdad,
-   contarVC
+   contarVC,
+   validarNombre,
+   validarCorreo
 }
 
 /*

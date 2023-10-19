@@ -2,6 +2,7 @@ import {PI, usuario} from "./constantes.js";
 import { aritmetica as calculos} from "./aritmetica.js";
 import { funcionesAvanzandas as fa } from "./aritmetica.js";
 import { ejerciciosAvanzados as exa } from "./ejercicios_avanzados.js";
+import { xf } from "./ejercicios_finales.js";
 
 //calculos.textRecortado("Hola mundo, Luis", 4);  #1
 //calculos.contarCaracteres("Hola"); #2
@@ -16,12 +17,17 @@ import { ejerciciosAvanzados as exa } from "./ejercicios_avanzados.js";
 //fa.validarCapicua(2002); #10
 //fa.factorial(5); //#11
 
-//exa.numeroPrimo(23); //#12
-//exa.numeroImpar(555); //#13
-//exa.convertidorGrados(80,"C"); //#14
-//exa.convertirNumeros(100, 2) //#15
-//exa.calcularEdad(new Date(2001, 5, 8)); //#17
-exa.contarVC("Luis Angel Montero Medina"); //#18
+//exa.numeroPrimo(23); // #12
+//exa.numeroImpar(555); // #13
+//exa.convertidorGrados(80,"C"); // #14
+//exa.convertirNumeros(100, 2) // #15
+//exa.tuDescuento(1000, 20); // #16
+//exa.calcularEdad(new Date(2001, 5, 8)); // #17
+//exa.contarVC("Wildanelys"); //#18
+//exa.validarNombre("Adèle Exarchopoulos"); // #19
+//exa.validarCorreo("beisbol0208@gmail.com"); // #20
+
+//xf.potenciadeArray([2, 4, 8, 16, 32]); // #21
 
 /*const uUid = crypto.randomUUID();
 console.log(uUid);*/
