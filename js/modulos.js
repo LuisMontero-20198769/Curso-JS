@@ -3,6 +3,7 @@ import { aritmetica as calculos} from "./aritmetica.js";
 import { funcionesAvanzandas as fa } from "./aritmetica.js";
 import { ejerciciosAvanzados as exa } from "./ejercicios_avanzados.js";
 import { xf } from "./ejercicios_finales.js";
+import { Pelicula } from "./ejercicio_Final.js";
 
 //calculos.textRecortado("Hola mundo, Luis", 4);  #1
 //calculos.contarCaracteres("Hola"); #2
@@ -28,6 +29,54 @@ import { xf } from "./ejercicios_finales.js";
 //exa.validarCorreo("beisbol0208@gmail.com"); // #20
 
 //xf.potenciadeArray([2, 4, 8, 16, 32]); // #21
+//xf.arrayAltoBajo([100, 2, 6, -100, 30]); // #22
+//xf.objetodeArray([100, 2, 9, 15, 17, 24, 3, 54, 57]); //#23
+//xf.ordenarNumeros([1, 2, 7, 3, 8, 0]); //#24
+//xf.eliminarDuplicados(["x", 10, "x", 2, "10", 10, true, true]); // #25 (Esta en Veremos....)
+//xf.promedio([9,8,7,6,5,4,3,2,1,0]); // #26
+/*const peli = new Pelicula({
+  id: "tt0001112",
+  titulo: "El Mundo Perfect",
+  director: "Luis Montero",
+  anio: 1994,
+  pais: ["Orlando", "Jamaica", "Haiti"],
+  generos: ["Comedy"],
+  calificacion: 9.999
+}); // #27
+//xf.contarCaracteres("Luis Angel Montero Medina es el mejor del mundo hj"); // Ejercicio propio
+peli.fichaTecnica();
+const misPelis = [
+  {
+    id: "tt0001113",
+    titulo: "El Mundo Perfect",
+    director: "Luis Montero",
+    anio: 2010,
+    pais: ["Orlando", "Jamaica", "Haiti"],
+    generos: ["Sport"],
+    calificacion: 9.999
+  },
+  {
+    id: "tt0001112",
+    titulo: "El Mundo",
+    director: "Luis Montero",
+    anio: 2001,
+    pais: ["Orlando", "Jamaica"],
+    generos: ["Comedy"],
+    calificacion: 9.999
+  },
+  {
+    id: "tt0001111",
+    titulo: "Hay un pais en el mundo",
+    director: "Luis Medina",
+    anio: 1982,
+    pais: ["Rep.Dominicana"],
+    generos: ["History"],
+    calificacion: 9.999
+  }
+];
+misPelis.forEach(Element => new Pelicula(Element).fichaTecnica());*/
+
+
 
 /*const uUid = crypto.randomUUID();
 console.log(uUid);*/

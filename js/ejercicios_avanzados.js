@@ -267,7 +267,7 @@ const contarVC = (cadena = undefined) =>
 }
 
 // Ejericio #19 - Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
-
+ 
 const validarNombre = (nombre = undefined) =>
 {
    if (nombre === undefined) return console.warn("No ingresaste un nombre.");
